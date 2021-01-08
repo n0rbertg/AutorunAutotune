@@ -33,7 +33,6 @@ RUN mkdir ./src
 RUN cd ./src && git clone -b dev git://github.com/openaps/oref0.git || (echo doing checkout && cd oref0 && git checkout dev && git pull)
 RUN cd ./src/oref0 && npm run global-install
 
-RUN echo "ERROR - You need to remove this line and edit the next lines with your personal API Secret and site URL" ; exit 1
 # Personal stuff: replace with correct values
 #ENV API_SECRET ${{ secrets.API_SECRET }} 
 #ENV SITE_URL ${{ secrets.SITE_URL }}
