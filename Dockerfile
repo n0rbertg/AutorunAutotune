@@ -35,8 +35,8 @@ RUN cd ./src/oref0 && npm run global-install
 
 RUN echo "ERROR - You need to remove this line and edit the next lines with your personal API Secret and site URL" ; exit 1
 # Personal stuff: replace with correct values
-ENV API_SECRET ${{ secrets.API_SECRET }} 
-ENV SITE_URL ${{ secrets.SITE_URL }}
+#ENV API_SECRET ${{ secrets.API_SECRET }} 
+#ENV SITE_URL ${{ secrets.SITE_URL }}
 # Set Your Time zone
 ENV TZ Europe/London  
 
