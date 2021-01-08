@@ -27,7 +27,7 @@ ENV LC_ALL en_US.UTF-8
 RUN mkdir ./src
 ## Next line is cleanup before switch to dev branch.  Got it from:
 ## https://gitter.im/nightscout/intend-to-bolus/archives/2018/11/30
-#RUN npm ls -gp --depth=0 | awk -F/ '/node_modules/ && !/\/npm$/ {print $NF}' | xargs npm -g rm
+RUN npm ls -gp --depth=0 | awk -F/ '/node_modules/ && !/\/npm$/ {print $NF}' | xargs npm -g rm
 
 #COPY src ./src
 RUN cd ./src && git clone -b dev git://github.com/openaps/oref0.git || (echo doing checkout && cd oref0 && git checkout dev && git pull)
@@ -35,8 +35,8 @@ RUN cd ./src/oref0 && npm run global-install
 
 RUN echo "ERROR - You need to remove this line and edit the next lines with your personal API Secret and site URL" ; exit 1
 # Personal stuff: replace with correct values
-ENV API_SECRET missing 
-ENV SITE_URL https://mysite.herokuapp.com
+ENV API_SECRET ${{ secrets.API_SECRET }} 
+ENV SITE_URL ${{ secrets.SITE_URL }}
 # Set Your Time zone
 ENV TZ Europe/London  
 
