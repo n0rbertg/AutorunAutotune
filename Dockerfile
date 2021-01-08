@@ -27,7 +27,7 @@ ENV LC_ALL en_US.UTF-8
 RUN mkdir ./src
 ## Next line is cleanup before switch to dev branch.  Got it from:
 ## https://gitter.im/nightscout/intend-to-bolus/archives/2018/11/30
-RUN npm ls -gp --depth=0 | awk -F/ '/node_modules/ && !/\/npm$/ {print $NF}' | xargs npm -g rm
+# RUN npm ls -gp --depth=0 | awk -F/ '/node_modules/ && !/\/npm$/ {print $NF}' | xargs npm -g rm
 
 #COPY src ./src
 RUN cd ./src && git clone -b dev git://github.com/openaps/oref0.git || (echo doing checkout && cd oref0 && git checkout dev && git pull)
