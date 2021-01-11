@@ -11,7 +11,9 @@ else
 fi
 
 echo "Running autotune"
-oref0-autotune --dir=/usr/src/autot/myopenaps --ns-host=$SITE_URL  --start-days-ago=$DAYS --categorize-uam-as-basal=true
+#oref0-autotune --dir=/usr/src/autot/myopenaps --ns-host=$SITE_URL  --start-days-ago=$DAYS --categorize-uam-as-basal=true
+oref0-autotune --dir=/usr/src/autot/myopenaps –-tune-insulin-curve=true --ns-host=$SITE_URL  --start-days-ago=$DAYS
+
 if [ $? -eq 0 ]
 then
   echo "Autotune successfull"
